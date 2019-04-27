@@ -12,11 +12,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Set Handlebars.
-var exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+const routes = require('./controllers/burgersControllers')
+app.use(routes)
 
 
 app.listen(PORT, () => {
