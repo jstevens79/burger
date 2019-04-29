@@ -21,12 +21,30 @@ router.post('/api/burgers', (req, res) => {
 
 
 router.put('/api/burgers/:id', (req, res) => {
+  const Condition = `id = ${req.params.id}`
 
+  burger.update({
+    devoured: req.body.devoured
+  }, Condition, function(result) {
+    if (result.changedRows === 0) {
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  })
 })
 
 router.delete('/api/burgers/:id', (req, res) => {
+  const Condition = `id = ${req.params.id}`
 
-
+  burger.delete(Condition, (result) => {
+    if (result.affectedRows === 0) {
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  })
+  
 })
 
 module.exports = router;

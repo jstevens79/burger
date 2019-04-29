@@ -24,26 +24,44 @@ const ObjToSql = (ob) => {
 
     }
   }
+
+  return arr.toString();
+
 }
 
 const orm = {
   all: (tableInput, cb) => {
-    const query = `SELECT * FROM ${tableInput};`
-    connection.query(query, (err, result) => {
+    const Query = `SELECT * FROM ${tableInput}`
+    connection.query(Query, (err, result) => {
       if (err) throw err;
       cb(result)
     })
   },
   create: (table, cols, vals, cb) => {
-    const query =   `INSERT INTO ${table} (${cols.toString()})
-                    VALUES (${QuestionMarks(vals.length)});`;
+    const Query =  `INSERT INTO ${table} (${cols.toString()}) VALUES (${QuestionMarks(vals.length)})`;
   
-    connection.query(query, vals, (err, result) => {
+    connection.query(Query, vals, (err, result) => {
+      if (err) throw err;
+      cb(result);
+    })
+  },
+  update: (table, objColVals, condition, cb) => {
+    const Query =  `UPDATE ${table} SET ${ObjToSql(objColVals)} WHERE ${condition}`
+    connection.query(Query, (err, result) => {
+      if (err) throw err;
+      cb(result);
+    })
+  },
+  delete: (table, condition, cb) => {
+    const Query =  `DELETE FROM ${table} WHERE ${condition}`
+    
+    connection.query(Query, (err, result) => {
       if (err) throw err;
       cb(result);
     })
 
   }
+
 }
 
 module.exports = orm;
