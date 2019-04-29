@@ -8,7 +8,7 @@ const burger = {
   },
   create: (cols, vals, cb) => {
     orm.create('burgers', cols, vals, (res) => {
-
+      cb(res)
     })
   },
   update: (objColVals, condition, cb) => {

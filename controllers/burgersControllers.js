@@ -8,14 +8,15 @@ router.get('/', (req, res) => {
     const hbsObj = {
       burgers: data
     }
-    console.log(hbsOj)
+    console.log(hbsObj)
     res.render("index", hbsObj)
   })
 })
 
 router.post('/api/burgers', (req, res) => {
-
-
+  burger.create(["burger_name"], [req.body.name], function(result) {
+    res.json({ id: result.insertId})
+  })
 })
 
 
