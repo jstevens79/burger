@@ -100,6 +100,10 @@ button {
   cursor: pointer;
 }
 
+button:focus {
+  outline: none;
+}
+
 .eat-burger {
   background: #33252e;
   color: white;
@@ -123,7 +127,7 @@ button {
   color: white;
 }
 
-.remove-burger:focus {
+.remove-burger:active {
   background: rgb(139, 5, 5);
   color: white;
 }
@@ -144,7 +148,7 @@ button {
   color: white;
 }
 
-.add-burger:focus {
+.add-burger:active {
   background: #dd8527;
   color: white;
 }
