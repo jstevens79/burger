@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #91d8e8;
+  color: #33252e;
+  font-size: 22px;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  width: 200px;
+  height: auto;
+}
+
+h1 {
+  font-size: 1.4em;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+  border-bottom: solid 4px #33252e;
+}
+
+h2 {
+  font-size: 1.2em;
+  padding: .4em 0;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  flex: 1;
+  padding: 30px 20px;
+  width: 80%;
+  max-width: 640px;
+  background: white;
+  transform: rotate(-1.2deg);
+  box-shadow: -2px 4px 8px rgba(0,0,0,0.3);
+}
+
+
+ol {
+  margin-left: 2em;
+  list-style-type: decimal;
+}
+
+li {
+  padding: 14px 10px;
+  align-items: center;
+}
+
+.devoured {
+  opacity: 0.6;
+}
+
+
+form {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: solid 1px #33252e;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 100%;
+}
+
+input {
+  flex: 3;
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background: #fae7b4;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  border: none;
+  background: none;
+  border-radius: 6px;
+  padding: .75em 1.5em;
+  cursor: pointer;
+}
+
+.eat-burger {
+  background: #33252e;
+  color: white;
+  margin: 0 10px;
+}
+
+.eat-burger:hover {
+  background: #8da43c;
+}
+
+.eat-burger:active {
+  background: #68792c;
+}
+
+.remove-burger {
+  background: rgb(233, 233, 233);
+}
+
+.remove-burger:hover {
+  background: #e24647;
+  color: white;
+}
+
+.remove-burger:focus {
+  background: rgb(139, 5, 5);
+  color: white;
+}
+
+.add-burger {
+  flex: 1;
+  margin-left: 10px;
+  background: 0;
+  font-size: 0.7em;
+  background: #f6b13a;
+  padding: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.add-burger:hover {
+  background: #f7952c;
+  color: white;
+}
+
+.add-burger:focus {
+  background: #dd8527;
+  color: white;
+}

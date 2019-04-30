@@ -1,19 +1,24 @@
-<ul>
+<ol>
   {{#each burgers}}
-    <li data-id="{{id}}">
+    {{#unless devoured}}
+    <li data-id={{id}} data-devoured="false">
+    {{/unless}}
+    {{#if devoured}}
+    <li data-id={{id}} data-devoured="true" class="devoured">
+    {{/if}}
       {{burger_name}}
-      <button id={{id}}>Eat</button>
+    {{#unless devoured}}
+      <button class="button eat-burger">Eat</button>
+    {{/unless}}
+    {{#if devoured}}
+      <button class="button eat-burger">Regurgitate</button>
+    {{/if}}
+      <button class="button remove-burger">Remove</button>
     </li>
   {{/each}}
-</ul>
+</ol>
 
-<h2>Add a burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Enter a burger</label>
-    <input type="text" id="burger" name="name">
-  </div>
-
-  <button type="submit">Add Burger</button>
+<form id="burger-form" class="create-form">
+  <input type="text" id="burger" name="name" placeholder="Add a burger" autocomplete="off">
+  <button type="submit" class="add-burger">Add</button>
 </form>
